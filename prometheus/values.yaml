@@ -9,6 +9,7 @@ alertmanager:
           - url: 'http://robusta-runner.default.svc.cluster.local/api/alerts'
             send_resolved: true
     route:
+      receiver: robusta
       routes:
         - receiver: 'robusta'
           matchers:
