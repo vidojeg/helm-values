@@ -1,2 +1,17 @@
 grafana:
   enabled: true
+
+alertmanager:
+  config:
+    receivers:
+      - name: 'robusta'
+        webhook_configs:
+          - url: 'http://robusta-runner.default.svc.cluster.local/api/alerts'
+            send_resolved: true
+    route:
+      routes:
+        - receiver: 'robusta'
+          matchers:
+            - severity =~ "info|warn|error|critical"
+          repeat_interval: 4h
+          continue: true
