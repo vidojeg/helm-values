@@ -16,8 +16,19 @@ alertmanager:
             - severity =~ "info|warn|error|critical"
           repeat_interval: 4h
           continue: true
+prometheus:
+  prometheusSpec:
+    additionalScrapeConfigs:
+      - job_name: 'kubernetes-service-endpoints'
+        kubernetes_sd_configs:
+        - role: endpoints
+        relabel_configs:
+        - action: labelmap
+          regex: __meta_kubernetes_service_label_(.+)
+        - source_labels: [__meta_kubernetes_namespace]
+          action: replace
+          target_label: kubernetes_namespace
+        - source_labels: [__meta_kubernetes_service_name]
+          action: replace
+          target_label: kubernetes_name
 
-prometheusOperator:
-  denyNamespaces:
-  - default
-  - kube-system
