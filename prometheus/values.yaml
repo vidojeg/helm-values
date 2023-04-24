@@ -1,2 +1,6 @@
 grafana:
   enabled: true
+prometheusOperator:
+  namespaces:
+    additional:
+      - tekton-pipelines
