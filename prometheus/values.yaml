@@ -1,9 +1,5 @@
 grafana:
   enabled: true
-prometheusOperator:
-  namespaces:
-    additional:
-      - tekton-pipelines
 
 alertmanager:
   config:
@@ -20,3 +16,4 @@ alertmanager:
             - severity =~ "info|warn|error|critical"
           repeat_interval: 4h
           continue: true
+
