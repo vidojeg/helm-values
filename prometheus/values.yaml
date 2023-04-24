@@ -17,3 +17,7 @@ alertmanager:
           repeat_interval: 4h
           continue: true
 
+prometheusOperator:
+  denyNamespaces:
+  - default
+  - kube-system
