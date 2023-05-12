@@ -1,4 +1,3 @@
-controller:
+master:
   tag: "2.222.1-jdk11"
-  installLatestPlugins: false
   installPlugins: []
