@@ -1,0 +1,4 @@
+provider:
+  packages:
+    - xpkg.upbound.io/coopnorge/provider-github:v0.3.2
+    
