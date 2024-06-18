@@ -1,1 +1,10 @@
-# values.yaml
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  hosts:
+    - host: helm.vidoje.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
